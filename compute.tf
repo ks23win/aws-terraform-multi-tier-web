@@ -1,4 +1,4 @@
-# Latest Amazon Linux 3 AMI ရှာဖွေခြင်း
+
 data "aws_ami" "amazon_linux_3" {
   most_recent = true
   owners      = ["amazon"]
@@ -82,7 +82,7 @@ resource "aws_instance" "web_server_2" {
               systemctl enable httpd
               TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
               MY_IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/local-ipv4)
-              echo "<h1>Mingalaba! Web Server 2 running securely in PRIVATE Subnet via NAT Gateway. Internal IP: $MY_IP</h1>" > /var/www/html/index.html
+              echo "<h1>Mingalaba! Web Server 2 running securely in PRIVATE Subnet via NAT Gatway. Internal IP: $MY_IP</h1>" > /var/www/html/index.html
               EOF
 
   tags = { Name = "web-server-2" }
