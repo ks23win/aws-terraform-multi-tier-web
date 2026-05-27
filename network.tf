@@ -5,7 +5,7 @@ resource "aws_vpc" "main" {
   tags = { Name = "main-vpc" }
 }
 
-# 2. Internet Gateway (Public Subnets အတွက်)
+# 2. Internet Gateway 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
   tags = { Name = "main-igw" }
